@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Some more filters</title>
+	<script src="lib/angular.js"></script>
+</head>
+<body data-ng-app data-ng-init="heros=['Batman', 'Ironman','Superman','Spiderman','Phantom']">
+	<!--
+	<ul>
+		<li>{{heros[0]}}</li>
+		<li>{{heros[1]}}</li>
+		<li>{{heros[2]}}</li>
+		<li>{{heros[3]}}</li>
+		<li>{{heros[4]}}</li>
+	</ul>
+	-->
+	<ul>
+		<li data-ng-repeat="hero in heros">{{hero}}</li>
+	</ul>
+</body>
+</html>

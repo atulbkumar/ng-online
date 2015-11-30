@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Some more filters</title>
+	<script src="lib/angular.js"></script>
+</head>
+<body data-ng-app >
+<label> Show / Hide Items</label>
+<input type="checkbox" ng-model="onlynew" />
+
+<p ng-show="onlynew">
+	<img src="images/superman.jpg" />
+</p>
+<p ng-hide="onlynew">
+	<img src="images/supergirl.jpg" />
+</p>
+
+</body>
+</html>

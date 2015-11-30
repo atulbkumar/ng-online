@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Some more filters</title>
+	<script src="lib/angular.js"></script>
+	<link href="style/bootstrap.css"  rel="stylesheet" />
+	<script>
+		angular
+		.module("app",[])
+		.controller("herocontroller", function($scope){
+		             $scope.heros=[
+{title : 'Batman', fName : 'Bruce', lName:'Wayne', city:'Gothem', power : 7, releasedate : '2015-11-30', price:123.456789, photo:'images/batman.jpg'},
+{title : 'Superman', fName : 'Clark', lName:'Kent', city:'Metropolis', power : 8, releasedate : '2015-12-01', price:125.678459, photo:'images/superman.jpg'},
+{title : 'Ironman', fName : 'Tony', lName:'Stark', city:'New York', power : 6, releasedate : '2015-12-02', price:144.678459, photo:'images/ironman.jpg'},
+{title : 'Spiderman', fName : 'Peter', lName:'Parker', city:'New York', power : 7, releasedate : '2015-12-03', price:201.674589, photo:'images/spiderman.jpg'},
+{title : 'Phantom', fName : 'Kit', lName:'Walker', city:'Bangala', power : 7, releasedate : '2015-12-04', price: 90.894567, photo:'images/phantom.jpg'}
+]
+		             });
+		             
+		angular
+		.module("app")
+		.controller("secondcontroller",function($scope){
+			
+		})
+	</script>
+</head>
+<body data-ng-app="app" data-ng-controller="herocontroller">
+<div class="container">
+	<div class="row">
+		<div class="well">
+			<label>Filter Data : </label>
+			<input ng-model='info' />
+		</div>
+		<div class="col-xs-10 col-xs-offset-1">
+			<table class="table table-striped" border="0" cellspacing="5" cellpadding="5">
+	<tr>
+		<th data-ng-click="sortBy = 'photo'; rev = !rev">Photo</th>
+		<th data-ng-click="sortBy = 'title'; rev = !rev">Title</th>
+		<th data-ng-click="sortBy = 'fName'; rev = !rev">First Name</th>
+		<th data-ng-click="sortBy = 'lName'; rev = !rev">Last Name</th>
+		<th data-ng-click="sortBy = 'city'; rev = !rev">City</th>
+		<th data-ng-click="sortBy = 'power'; rev = !rev">Power</th>
+		<th data-ng-click="sortBy = 'releasedate'; rev = !rev">Release Date</th>
+		<th data-ng-click="sortBy = 'price'; rev = !rev">Ticket Price</th>
+	</tr>
+	<tr data-ng-repeat="hero in heros | orderBy : sortBy : rev | filter : {title : info}">
+		<td><img src="{{hero.photo}}" width="40" align="absmiddle" /></td>
+		<td>{{hero.title | uppercase}}</td>
+		<td>{{hero.fName}}</td>
+		<td>{{hero.lName}}</td>
+		<td>{{hero.city}}</td>
+		<td>{{hero.power}}</td>
+		<td>{{hero.releasedate | date : 'dd-MMM-yyyy'}}</td>
+		<td>{{hero.price | currency : 'Rs. '}}</td>
+	</tr>
+</table>
+		</div>
+	</div>
+</div>
+</body>
+</html>

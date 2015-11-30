@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Some more filters</title>
+	<script src="lib/angular.js"></script>
+</head>
+<body data-ng-app >
+<label> Show / Hide Items</label>
+<input type="checkbox" ng-model="onlynew" />
+
+<ul data-ng-switch on="onlynew">
+	<li ng-switch-when="true">New Item</li>
+	<li ng-switch-when="false">Old Item</li>
+	<li ng-switch-default>Default Item</li>
+	<li ng-switch-when="true">New Item</li>
+	<li ng-switch-when="false">Old Item</li>
+	<li ng-switch-default>Default Item</li>
+	<li ng-switch-when="true">New Item</li>
+	<li ng-switch-when="false">Old Item</li>
+	<li ng-switch-default>Default Item</li>
+</ul>
+</body>
+</html>
