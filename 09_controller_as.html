@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Some more filters</title>
+	<script src="lib/angular.js"></script>
+	<link href="style/bootstrap.css"  rel="stylesheet" />
+	<script src="app/modules/app.js"></script>
+	<script src="app/controllers/herocontroller_as.js"></script>
+	
+</head>
+<body data-ng-app="app" >
+	
+<div data-ng-controller="herocontroller as hf">
+<div class="container">
+	<div class="row">
+		<div class="well">
+			<label>Filter Data : </label>
+			<input ng-model='hf.info' />
+		</div>
+		<div class="col-xs-10 col-xs-offset-1">
+			<table class="table table-striped" border="0" cellspacing="5" cellpadding="5">
+	<tr>
+		<th data-ng-click="hf.sortIt('photo')">Photo</th>
+		<th data-ng-click="hf.sortIt('title')">Title</th>
+		<th data-ng-click="hf.sortIt('fName')">First Name</th>
+		<th data-ng-click="hf.sortIt('lName')">Last Name</th>
+		<th data-ng-click="hf.sortIt('city')">City</th>
+		<th data-ng-click="hf.sortIt('power')">Power</th>
+		<th data-ng-click="hf.sortIt('releasedate')">Release Date</th>
+		<th data-ng-click="hf.sortIt('price')">Ticket Price</th>
+	</tr>
+	<tr data-ng-repeat="hero in hf.heros | orderBy : hf.sortBy : hf.rev | filter : { title : hf.info}">
+		<td><img src="{{hero.photo}}" width="40" align="absmiddle" /></td>
+		<td>{{hero.title | uppercase}}</td>
+		<td>{{hero.fName}}</td>
+		<td>{{hero.lName}}</td>
+		<td>{{hero.city}}</td>
+		<td>{{hero.power}}</td>
+		<td>{{hero.releasedate | date : 'dd-MMM-yyyy'}}</td>
+		<td>{{hero.price | currency : 'Rs. '}}</td>
+	</tr>
+</table>
+		</div>
+	</div>
+</div>
+	</div>
+</body>
+</html>

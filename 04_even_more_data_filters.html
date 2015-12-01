@@ -24,6 +24,7 @@
 		<div class="well">
 			<label>Filter Data : </label>
 			<input ng-model='info' />
+			<input ng-model='ipcity' />
 		</div>
 		<div class="col-xs-10 col-xs-offset-1">
 			<table class="table table-striped" border="0" cellspacing="5" cellpadding="5">
@@ -37,7 +38,7 @@
 		<th data-ng-click="sortBy = 'releasedate'; rev = !rev">Release Date</th>
 		<th data-ng-click="sortBy = 'price'; rev = !rev">Ticket Price</th>
 	</tr>
-	<tr data-ng-repeat="hero in heros | orderBy : sortBy : rev | filter : {title : info}">
+	<tr data-ng-repeat="hero in heros | orderBy : sortBy : rev | filter : {title : info, city : ipcity}">
 		<td><img src="{{hero.photo}}" width="40" align="absmiddle" /></td>
 		<td>{{hero.title | uppercase}}</td>
 		<td>{{hero.fName}}</td>
