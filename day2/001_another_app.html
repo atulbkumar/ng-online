@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Mulitple Controllers</title>
+	<script src="lib/angular.js"></script>
+	<script src="lib/angular-route.js"></script>
+	<link href="style/bootstrap.css"  rel="stylesheet" />
+	
+	<script src="app/modules/app.js"></script>
+	<script src="app/configuration/config.js"></script>
+	<script src="app/controllers/homecontroller.js"></script>
+	<script src="app/controllers/batcontroller.js"></script>
+	<script src="app/controllers/ironmancontroller.js"></script>
+	
+</head>
+<body ng-app="app">
+	<div class="navbar navbar-default">
+		<nav class="nav">
+			<ul>
+				<li> <a href="#/">Home Page</a> </li>
+				<li> <a href="#/batman">Batman Page</a> </li>
+				<li> <a href="#/ironman">Iroman Page</a> </li>
+			</ul>
+		</nav>
+	</div>
+	<div ng-view></div>
+</body>
+</html>
